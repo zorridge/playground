@@ -16,8 +16,17 @@ shift
 # Create build directory if it doesn't exist
 mkdir -p build
 
-echo "Compiling $FILE..."
-"$GPP" -std=c++17 -fdiagnostics-color=always -g "$FILE" \
+# Collect all other .cpp files except the provided one
+OTHER_CPP_FILES=()
+for f in *.cpp; do
+  if [[ "$f" != "$FILE" ]]; then
+    OTHER_CPP_FILES+=("$f")
+  fi
+done
+
+echo "Compiling $FILE with other source files: ${OTHER_CPP_FILES[*]}"
+
+"$GPP" -std=c++17 -fdiagnostics-color=always -g "$FILE" "${OTHER_CPP_FILES[@]}" \
   -pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror \
   -o "build/$NAME"
 

@@ -1,16 +1,11 @@
+#include <iomanip> // for std::setw (which sets the width of the subsequent output)
 #include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
+#include <climits> // for CHAR_BIT
 
 int main()
 {
-  vector<string> msg{"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+  int a{0};
+  constexpr int b{a};
 
-  for (const string &word : msg)
-  {
-    cout << word << " ";
-  }
-  cout << endl;
+  return 0;
 }

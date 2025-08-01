@@ -1,4 +1,9 @@
 {
   "C_Cpp.default.compilerPath": "/usr/bin/clang++",
-  "C_Cpp.default.cppStandard": "c++17"
+  "C_Cpp.default.cppStandard": "c++17",
+  "files.associations": {
+    "iosfwd": "cpp",
+    "vector": "cpp",
+    "string": "cpp"
+  }
 }
